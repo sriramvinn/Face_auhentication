@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Face Authentication - Login</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Login</h1>
+    {% if error %}
+        <p style="color: red;">{{ error }}</p>
+    {% endif %}
+    <form method="POST" action="/">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required><br><br>
+        
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required><br><br>
+
+        <div class="button-container">
+            <input type="submit" value="Login"><br><br>
+        </div>
+    </form>
+
+    <form method="GET" action="/signup">
+        <input type="submit" value="Sign Up">
+    </form>
+
+    <form method="POST" action="/">
+        <div class="button-container">
+            <input type="hidden" name="face_login" value="true">
+            <input type="submit" value="Face Login">
+        </div>
+    </form>
+</body>
+</html>
